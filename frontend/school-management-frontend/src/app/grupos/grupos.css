@@ -1,0 +1,81 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header h2 {
+  margin: 0;
+}
+.nuevo-grupo {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.nuevo-grupo:hover {
+  background-color: #0056b3;
+}
+.filtro-grupos {
+  background: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+.filtro-grupos select, .filtro-grupos button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+.filtro-grupos button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.filtro-grupos button:hover {
+  background-color: #0056b3;
+}
+.grupos-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.grupo-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.grupo-card:hover {
+  transform: scale(1.05);
+}
+.grupo-card h3 {
+  margin: 0 0 10px;
+  color: #333;
+}
+.grupo-card p {
+  margin: 5px 0;
+  color: #666;
+}
+.ver-detalles {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.ver-detalles:hover {
+  background-color: #138496;
+}

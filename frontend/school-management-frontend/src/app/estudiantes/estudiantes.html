@@ -1,0 +1,108 @@
+    <div class="header">
+    <h2>Administración de estudiantes</h2>
+    <button (click)="openNewStudentForm()">Nuevo registro</button>
+    </div>
+    <div class="filtros">
+    <select [(ngModel)]="filtroGrado">
+        <option value="">Grado</option>
+        <option value="TI">TI</option>
+    </select>
+    <select [(ngModel)]="filtroGrupo">
+        <option value="">Grupo</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+    </select>
+    <select [(ngModel)]="filtroIdentificacion">
+        <option value="">Identificación</option>
+    </select>
+    <input type="text" [(ngModel)]="filtroDocumento" placeholder="Número documento">
+    <button (click)="buscarEstudiantes()">Buscar</button>
+    <button (click)="limpiarFiltros()">Limpiar filtros</button>
+    </div>
+    <div class="resultados">
+    <h3>Resultados</h3>
+    <table>
+        <tr>
+        <th>Código</th>
+        <th>Identificación</th>
+        <th>Estudiante</th>
+        <th>Grado</th>
+        <th>Grupo</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+        </tr>
+        <tr *ngFor="let estudiante of estudiantes()">
+        <td>{{ estudiante.codigo }}</td>
+        <td>{{ estudiante.identificacion }}</td>
+        <td>{{ estudiante.nombre }}</td>
+        <td>{{ estudiante.grado }}</td>
+        <td>{{ estudiante.grupo }}</td>
+        <td>{{ estudiante.estado }}</td>
+        <td class="acciones">
+            <button (click)="mostrarDetalles(estudiante)">👁️</button>
+            <button (click)="mostrarEliminarModal(estudiante.nombre)">🗑️</button>
+        </td>
+        </tr>
+    </table>
+    <p>Mostrando {{ estudiantes().length }} registro(s)</p>
+    </div>
+    <div class="info_estudiantes" *ngIf="mostrarFormulario()">
+    <h3>Información del estudiante</h3>
+    <form #estudianteForm="ngForm" (ngSubmit)="guardarEstudiante()">
+        <input type="text" [(ngModel)]="nuevoEstudiante().codigo" name="codigo" readonly>
+        <select [(ngModel)]="nuevoEstudiante().identificacionTipo" name="identificacionTipo">
+        <option value="TI">TI</option>
+        </select>
+        <input type="text" [(ngModel)]="nuevoEstudiante().documento" name="documento" placeholder="Número documento">
+        <input type="text" [(ngModel)]="nuevoEstudiante().primerNombre" name="primerNombre" placeholder="Primer nombre">
+        <input type="text" [(ngModel)]="nuevoEstudiante().segundoNombre" name="segundoNombre" placeholder="Segundo nombre">
+        <input type="text" [(ngModel)]="nuevoEstudiante().primerApellido" name="primerApellido" placeholder="Primer apellido">
+        <input type="text" [(ngModel)]="nuevoEstudiante().segundoApellido" name="segundoApellido" placeholder="Segundo apellido">
+        <label><input type="radio" [(ngModel)]="nuevoEstudiante().sexo" name="sexo" value="Femenino"> Femenino</label>
+        <label><input type="radio" [(ngModel)]="nuevoEstudiante().sexo" name="sexo" value="Masculino"> Masculino</label>
+        <input type="date" [(ngModel)]="nuevoEstudiante().fechaNacimiento" name="fechaNacimiento">
+        <input type="text" [(ngModel)]="nuevoEstudiante().telefono" name="telefono" placeholder="Teléfono residencia">
+        <input type="text" [(ngModel)]="nuevoEstudiante().celular" name="celular" placeholder="Celular">
+        <input type="email" [(ngModel)]="nuevoEstudiante().email" name="email" placeholder="E-mail">
+        <input type="text" [(ngModel)]="nuevoEstudiante().ciudad" name="ciudad" placeholder="Ciudad de residencia">
+        <input type="text" [(ngModel)]="nuevoEstudiante().direccion" name="direccion" value="Calle 12 #45-78 Piso 2">
+        <select [(ngModel)]="nuevoEstudiante().grado" name="grado">
+        <option value="">Grado</option>
+        <option value="10">10</option>
+        </select>
+        <select [(ngModel)]="nuevoEstudiante().grupo" name="grupo">
+        <option value="">Grupo</option>
+        <option value="A">A</option>
+        </select>
+        <button type="submit">Guardar</button>
+    </form>
+    </div>
+    <div class="cursos">
+    <h3>Cursos realizados</h3>
+    <table>
+        <tr>
+        <th>Código</th>
+        <th>Año</th>
+        <th>Grado</th>
+        <th>Grupo</th>
+        <th>Estado</th>
+        <th>Nota promedio</th>
+        </tr>
+        <tr *ngFor="let curso of cursos()">
+        <td>{{ curso.codigo }}</td>
+        <td>{{ curso.ano }}</td>
+        <td>{{ curso.grado }}</td>
+        <td>{{ curso.grupo }}</td>
+        <td>{{ curso.estado }}</td>
+        <td>{{ curso.notaPromedio }}</td>
+        </tr>
+    </table>
+    </div>
+    <div id="eliminarModal" class="modal" *ngIf="mostrarModal()">
+    <div>
+        <h3>Eliminar {{ estudianteSeleccionado() }}</h3>
+        <p>¿Estás seguro que deseas eliminar el registro de estudiante?</p>
+        <button (click)="cerrarModal()">No</button>
+        <button (click)="eliminarEstudiante()">Sí, eliminar</button>
+    </div>
+    </div>

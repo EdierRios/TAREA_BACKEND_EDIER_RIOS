@@ -1,0 +1,42 @@
+    <div class="header">
+    <h2>Gestión de Grupos</h2>
+    <button class="nuevo-grupo" (click)="openNewGroupForm()">Nuevo Grupo</button>
+    </div>
+    <div class="filtro-grupos">
+    <select [(ngModel)]="filtroGrado">
+        <option value="">Seleccione Grado</option>
+        <option value="TI">TI</option>
+        <option value="9">9</option>
+    </select>
+    <button (click)="filtrarGrupos()">Filtrar</button>
+    </div>
+    <div class="grupos-contenedor">
+    <div class="grupo-card" *ngFor="let grupo of grupos()">
+        <h3>{{ grupo.nombre }} - Grado {{ grupo.grado }}</h3>
+        <p>Estudiantes: {{ grupo.estudiantes }}</p>
+        <p>Profesor: {{ grupo.profesor }}</p>
+        <button class="ver-detalles" (click)="verDetalles(grupo)">Ver Detalles</button>
+    </div>
+    </div>
+    <div class="form-container" *ngIf="mostrarFormulario()">
+    <h3>Nuevo Grupo</h3>
+    <form #grupoForm="ngForm" (ngSubmit)="guardarGrupo()">
+        <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="nuevoGrupo().nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+        <label>Grado</label>
+        <select [(ngModel)]="nuevoGrupo().grado" name="grado" required>
+            <option value="TI">TI</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Profesor</label>
+        <input type="text" [(ngModel)]="nuevoGrupo().profesor" name="profesor" required>
+        </div>
+        <button type="submit">Guardar</button>
+    </form>
+    </div>

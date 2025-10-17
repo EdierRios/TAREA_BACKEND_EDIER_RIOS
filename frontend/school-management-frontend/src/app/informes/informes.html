@@ -1,0 +1,65 @@
+<div class="header">
+  <h2>Informes</h2>
+  <button class="generar-informe" (click)="openNewInformeForm()">Generar Nuevo Informe</button>
+</div>
+<div class="filtro-grupos">
+  <select [(ngModel)]="filtroGrado">
+    <option value="">Seleccione Grado</option>
+    <option value="TI">TI</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+  <button (click)="filtrarInformes()">Filtrar</button>
+</div>
+<div class="informes-contenedor">
+  <h3>Lista de Informes</h3>
+  <table>
+    <tr>
+      <th>ID Informe</th>
+      <th>Grado</th>
+      <th>Grupo</th>
+      <th>Fecha</th>
+      <th>Acciones</th>
+    </tr>
+    <tr *ngFor="let informe of informes()">
+      <td>{{ informe.id }}</td>
+      <td>{{ informe.grado }}</td>
+      <td>{{ informe.grupo }}</td>
+      <td>{{ informe.fecha }}</td>
+      <td class="acciones">
+        <button (click)="verInforme(informe.id)">👁️</button>
+        <button (click)="eliminarInforme(informe.id)">🗑️</button>
+      </td>
+    </tr>
+  </table>
+  <p>Mostrando {{ informes().length }} informe(s)</p>
+</div>
+<div class="form-container" *ngIf="mostrarFormulario()">
+  <h3>Nuevo Informe</h3>
+  <form #informeForm="ngForm" (ngSubmit)="guardarInforme()">
+    <div class="form-group">
+      <label>ID Informe</label>
+      <input type="text" [(ngModel)]="nuevoInforme().id" name="id" required>
+    </div>
+    <div class="form-group">
+      <label>Grado</label>
+      <select [(ngModel)]="nuevoInforme().grado" name="grado" required>
+        <option value="TI">TI</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Grupo</label>
+      <select [(ngModel)]="nuevoInforme().grupo" name="grupo" required>
+        <option value="A">A</option>
+        <option value="B">B</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Fecha</label>
+      <input type="date" [(ngModel)]="nuevoInforme().fecha" name="fecha" required>
+    </div>
+    <button type="submit">Guardar</button>
+  </form>
+</div>

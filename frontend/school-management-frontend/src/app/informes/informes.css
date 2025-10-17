@@ -1,0 +1,108 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header h2 {
+  margin: 0;
+}
+.generar-informe {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.generar-informe:hover {
+  background-color: #0056b3;
+}
+.filtro-grupos {
+  background: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+.filtro-grupos select, .filtro-grupos button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+.filtro-grupos button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.filtro-grupos button:hover {
+  background-color: #0056b3;
+}
+.informes-contenedor {
+  margin-top: 20px;
+}
+.informes-contenedor h3 {
+  margin-top: 0;
+}
+.informes-contenedor table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.informes-contenedor th, .informes-contenedor td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.informes-contenedor th {
+  background-color: #007bff;
+  color: white;
+}
+.informes-contenedor .acciones button {
+  margin: 0 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.informes-contenedor .acciones button:hover {
+  color: #dc3545;
+}
+.form-container {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 20px 0;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.form-group button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.form-group button:hover {
+  background-color: #0056b3;
+}

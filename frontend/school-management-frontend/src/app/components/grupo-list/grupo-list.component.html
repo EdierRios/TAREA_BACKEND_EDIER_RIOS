@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Lista de Grupos</h2>
+
+  <button class="btn btn-primary add-btn">
+    <i class="fas fa-plus"></i> Agregar Nuevo Grupo
+  </button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Grado</th>
+        <th>Profesor</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grupo of grupos">
+        <td>{{ grupo.id }}</td>
+        <td>{{ grupo.nombre }}</td>
+        <td>{{ grupo.grado }}</td>
+        <td>{{ grupo.profesor }}</td>
+        <td>
+          <button class="btn btn-sm btn-info edit-btn">
+            <i class="fas fa-edit"></i> Editar
+          </button>
+          <button class="btn btn-sm btn-danger delete-btn" (click)="eliminarGrupo(grupo.id)">
+            <i class="fas fa-trash-alt"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="grupos.length === 0">
+        <td colspan="5" class="text-center">No hay grupos registrados.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

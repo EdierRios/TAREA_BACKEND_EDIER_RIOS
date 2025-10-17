@@ -1,0 +1,48 @@
+/* frontend/school-management-frontend/src/app/components/grupo-list/grupo-list.component.css */
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden; 
+  border-radius: 8px;
+}
+
+.table th, .table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+  background-color: #e9ecef;
+}
+
+.add-btn {
+  margin-bottom: 20px;
+}
+
+
+.edit-btn {
+  margin-right: 8px;
+}
